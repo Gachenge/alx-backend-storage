@@ -1,0 +1,5 @@
+// inserts a document in the collection
+const document = {
+	name: "Holberton school"
+};
+db.school.insert(document);
