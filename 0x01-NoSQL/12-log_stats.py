@@ -3,6 +3,8 @@
 script that provides some stats anbout Nginx logs stored in MongoDB
 """
 from pymongo import MongoClient
+
+
 def main(mongo_collection):
     """read and format nginx logs"""
     print(f"{mongo_collection.count_documents({})} logs")
@@ -13,6 +15,7 @@ def main(mongo_collection):
         print(f"\tmethod {method}: {stat}")
     status_logs = collection.count_documents({'method': 'GET', 'path': '/status'})
     print(f"{status_logs} status check")
+
 
 if __name__ == "__main__":
     client = MongoClient('mongodb://127.0.0.1:27017/')
